@@ -9,20 +9,17 @@ uuid=$(grep -oE -m1 '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12
 echo
 green "========================================="
 echo
-blue "安装完毕！请点击下面白色的网页链接，查看相关协议信息"
+blue "Установлен! Нажмите на белую веб-ссылку ниже, чтобы просмотреть соответствующую информацию о настройках клиентов."
 echo 
 echo "https://${REPL_SLUG}.${REPL_OWNER}.repl.co/$uuid.html" 
-echo "或"
+echo "или"
 echo "http://${REPL_SLUG}.${REPL_OWNER}.repl.co/$uuid.html" 
 echo
-yellow "最新更新日志：
-2023.5.15更新：
-1、结果显示的网页链接增加http链接，针对个别情况下网页链接无法打开
-
-视频教程：https://www.youtube.com/@ygkkk
-博客地址：https://ygkkk.blogspot.com"
+yellow "
+видеоурок：https://www.youtube.com/@ygkkk
+блог：https://ygkkk.blogspot.com"
 echo
-while true; do curl -s --user-agent "${UA_Browser}" "https://${REPL_SLUG}.${REPL_OWNER}.repl.co" >/dev/null 2>&1 && echo "$(date +'%Y%m%d%H%M%S') 我还活着 ..."; sleep 600; done &
+while true; do curl -s --user-agent "${UA_Browser}" "https://${REPL_SLUG}.${REPL_OWNER}.repl.co" >/dev/null 2>&1 && echo "$(date +'%Y%m%d%H%M%S') активен ..."; sleep 600; done &
 ./python/$(cat ./python/xr.log) -c /tmp/config.json >/dev/null 2>&1 &
 ./nginx/sbin/nginx -g 'daemon off;'
 tail -f
